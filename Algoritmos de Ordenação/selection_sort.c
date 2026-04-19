@@ -1,24 +1,25 @@
-void selection_sort(int* array, int tam){
+void selection_sort(int* array, int tamanho_array){
     
-    int menor_candidato_index;
+    int menor_elemento_index;
     int i, j, aux;
 
-    for(i=0;i<tam;i++){
+    for( i = 0 ; i < tamanho_array; i++){
 
-        menor_candidato_index = i;
+        menor_elemento_index = i;
 
-        for(j=i;j<tam;j++){
+        for( j = i + 1; j < tamanho_array; j++){
             
-            if(*(array + menor_candidato_index)> *(array+j)){
+            if(array[menor_elemento_index] > array[j]){
 
-                menor_candidato_index = j;
+                menor_elemento_index = j;
 
             }
 
         }
-        aux = *(array + menor_candidato_index);
-        *(array  + menor_candidato_index) = *(array + i);
-        *(array + i) = aux;
+
+        aux = array[menor_elemento_index];
+        array[menor_elemento_index] = array[i];
+        array[i] = aux;
     }
 
 }

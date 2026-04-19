@@ -1,30 +1,36 @@
-#include <stdio.h>
+int Partition(int* array, int inicio, int fim){
 
-int partition(int* array, int r, int p){
-  chave = *(array+p)
+    int pivot, aux;
+    int j, i;
 
-  int j=0, i=j-1, aux;
+    i = inicio - 1;
+    pivot = array[fim];
 
-  for(j; j<p; j++){
-    
-    if(*(array+j)<chave){
-      i++;
-      aux = *(array+i);
-      *(array+i) = *(array+j);
-      *(array+j) = aux;
+    for(j = inicio; j < fim; j++){
+
+        if(array[j] <= pivot){
+            i++;
+            aux = array[j];
+            array[j] = array[i];
+            array[i] = aux;
+        }
     }
     
-  }
-  aux = *(array+i+1);
-  *(array+i+1) = *(array+p);
-  *(array+p) = aux;
-  return i+1;
+    aux = array[fim];
+    array[fim] = array[i+1];
+    array[i+1] = aux; 
+
+    return i+1;
 }
 
-void quick_sort(int* array, int r, int p){
-  if r<p{
-    q = partition(array, r, p);
-    quick_sort(array, r, q-1);
-    quick_sort(array. q+1, p);
-  }
+void quick_sort(int* array, int inicio, int fim){
+
+    if (inicio < fim){
+        
+        int pivot_index = Partition(array, inicio, fim);
+
+        quick_sort(array, inicio, pivot_index - 1);
+        quick_sort(array, pivot_index + 1, fim);
+
+    }
 }
