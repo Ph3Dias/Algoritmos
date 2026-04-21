@@ -1,4 +1,3 @@
-
 void insertion_sort(int *array, int tamanho_array){
 
     int j, i, chave;
